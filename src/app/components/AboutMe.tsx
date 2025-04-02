@@ -42,7 +42,7 @@ const AboutMe = () => {
           >
             <div className="prose dark:prose-invert max-w-none">
               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Merhaba! Ben Arda, yazılım geliştirme konusunda tutkulu bir öğrenciyim. Şu anda üniversitede bilgisayar mühendisliği eğitimi alıyorum ve kendimi sürekli geliştirmeye odaklanıyorum.
+                Merhaba! Ben Arda, yazılım geliştirme konusunda tutkulu bir öğrenciyim. Şu anda Manisa Celal Bayar Üniversitesi&apos;nde bilgisayar mühendisliği eğitimi alıyorum ve kendimi sürekli geliştirmeye odaklanıyorum.
               </p>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
                 İletişim ve takım çalışmasına yatkın yapıda, satış deneyimi bulunan, müşteri ihtiyaçlarını analiz edip çözüm sunma konusunda yeteneğim var. DEFACTO ve FLO gibi işletmelerde satış danışmanı olarak çalıştım. Çözüm odaklı olma konusunda deneyim kazandım.

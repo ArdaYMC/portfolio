@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
 import { FaHtml5, FaCss3Alt, FaGitAlt, FaFigma } from "react-icons/fa";
-import { SiTypescript, SiTailwindcss, SiNextdotjs, SiFlutter, SiNodedotjs, SiFirebase } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiFlutter, SiNodedotjs, SiFirebase } from "react-icons/si";
 
 const Skills = () => {
   const skillCategories = [
