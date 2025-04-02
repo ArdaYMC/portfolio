@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiGithub } from "react-icons/fi";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,10 +13,34 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState({
+    submitting: false,
+    submitted: false,
+    error: null
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form gönderme işlemi burada yapılacak
-    console.log(formData);
+    setStatus({ submitting: true, submitted: false, error: null });
+
+    try {
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // EmailJS Service ID
+        'YOUR_TEMPLATE_ID', // EmailJS Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        'YOUR_PUBLIC_KEY' // EmailJS Public Key
+      );
+
+      setStatus({ submitting: false, submitted: true, error: null });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      setStatus({ submitting: false, submitted: false, error: "Mesaj gönderilemedi. Lütfen tekrar deneyin." });
+    }
   };
 
   const handleChange = (
@@ -103,7 +128,7 @@ const Contact = () => {
               </h3>
               <div className="flex space-x-6">
                 <a
-                  href="www.linkedin.com/in/ardayemc"
+                  href="https://www.linkedin.com/in/ardayemc"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
@@ -204,10 +229,23 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
+                disabled={status.submitting}
+                className={`w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors ${
+                  status.submitting ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
               >
-                Gönder
+                {status.submitting ? 'Gönderiliyor...' : 'Gönder'}
               </button>
+              {status.submitted && (
+                <p className="text-green-600 dark:text-green-400 text-center mt-4">
+                  Mesajınız başarıyla gönderildi!
+                </p>
+              )}
+              {status.error && (
+                <p className="text-red-600 dark:text-red-400 text-center mt-4">
+                  {status.error}
+                </p>
+              )}
             </form>
           </motion.div>
         </div>

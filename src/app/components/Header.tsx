@@ -21,6 +21,19 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleDownloadCV = () => {
+    // CV dosyasının URL'si
+    const cvUrl = '/cv.pdf';
+    
+    // Yeni bir <a> elementi oluştur
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.download = 'arda_yemci_cv.pdf'; // İndirilen dosyanın adı
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 ${
@@ -56,12 +69,12 @@ const Header = () => {
                 )
               )}
               <li>
-                <Link
-                  href="/cv"
+                <button
+                  onClick={handleDownloadCV}
                   className="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 smooth-transition"
                 >
                   CV İndir
-                </Link>
+                </button>
               </li>
             </ul>
           </nav>
@@ -98,13 +111,15 @@ const Header = () => {
                 </Link>
               )
             )}
-            <Link
-              href="/cv"
-              className="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700"
-              onClick={() => setIsOpen(false)}
+            <button
+              onClick={() => {
+                handleDownloadCV();
+                setIsOpen(false);
+              }}
+              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700"
             >
               CV İndir
-            </Link>
+            </button>
           </div>
         </div>
       )}
