@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiGithub } from "react-icons/fi";
 import emailjs from '@emailjs/browser';
 
+// EmailJS'yi başlat
+emailjs.init("UhrwjtNBauE-_s3mv");
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -13,7 +16,11 @@ const Contact = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState({
+  const [status, setStatus] = useState<{
+    submitting: boolean;
+    submitted: boolean;
+    error: string | null;
+  }>({
     submitting: false,
     submitted: false,
     error: null
@@ -25,15 +32,15 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID', // EmailJS Service ID
-        'YOUR_TEMPLATE_ID', // EmailJS Template ID
+        'service_bzk7ggr',
+        'template_contact',
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        'YOUR_PUBLIC_KEY' // EmailJS Public Key
+        'UhrwjtNBauE-_s3mv'
       );
 
       setStatus({ submitting: false, submitted: true, error: null });
