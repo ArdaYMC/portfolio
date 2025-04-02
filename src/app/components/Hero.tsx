@@ -40,16 +40,16 @@ const Hero = () => {
               Mobil & web geliştirme ile yapay zeka teknolojilerine büyük ilgi duyuyorum. React, Python, C#, Flutter ve Node.js kullanarak yazılımlar geliştiriyorum.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link
-                href="/#iletişim"
-                className="btn btn-primary w-full sm:w-auto"
+                href="#iletisim"
+                className="btn btn-primary w-full sm:w-auto bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors"
               >
                 İletişime Geç
               </Link>
               <Link
-                href="/#projeler"
-                className="btn btn-outline w-full sm:w-auto"
+                href="#projeler"
+                className="btn btn-outline w-full sm:w-auto border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-md hover:bg-blue-600 hover:text-white transition-colors"
               >
                 Projelerimi Gör
               </Link>
@@ -108,7 +108,7 @@ const Hero = () => {
           className="absolute bottom-8 left-0 right-0 flex justify-center"
         >
           <Link
-            href="/#hakkımda"
+            href="#hakkimda"
             className="flex flex-col items-center text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
           >
             <span className="text-sm mb-2">Daha Fazla</span>
