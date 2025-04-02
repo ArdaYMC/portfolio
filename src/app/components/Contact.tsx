@@ -30,22 +30,27 @@ const Contact = () => {
     e.preventDefault();
     setStatus({ submitting: true, submitted: false, error: null });
 
+    const templateParams = {
+      to_name: "Arda",
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      reply_to: formData.email
+    };
+
     try {
       await emailjs.send(
         'service_bzk7ggr',
         'template_contact',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
+        templateParams,
         'UhrwjtNBauE-_s3mv'
       );
 
       setStatus({ submitting: false, submitted: true, error: null });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
+      console.error("EmailJS Error:", error);
       setStatus({ submitting: false, submitted: false, error: "Mesaj gönderilemedi. Lütfen tekrar deneyin." });
     }
   };
