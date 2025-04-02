@@ -48,7 +48,7 @@ const AboutMe = () => {
                 İletişim ve takım çalışmasına yatkın yapıda, satış deneyimi bulunan, müşteri ihtiyaçlarını analiz edip çözüm sunma konusunda yeteneğim var. DEFACTO ve FLO gibi işletmelerde satış danışmanı olarak çalıştım. Çözüm odaklı olma konusunda deneyim kazandım.
               </p>
               <p className="text-gray-600 dark:text-gray-400">
-                Liderlik becerileri ve analitik düşünme yeteneklerimle takım projelerinde etkin roller üstleniyorum. İzmir, Türkiye'de yaşıyorum ve gerçek dünya projelerine katkı sağlayabileceğim bir staj fırsatı arıyorum.
+                Liderlik becerileri ve analitik düşünme yeteneklerimle takım projelerinde etkin roller üstleniyorum. İzmir, Türkiye&apos;de yaşıyorum ve gerçek dünya projelerine katkı sağlayabileceğim bir staj fırsatı arıyorum.
               </p>
             </div>
           </motion.div>
